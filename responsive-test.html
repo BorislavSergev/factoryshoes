@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Shoes - Responsive Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive-fixes.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        
+        .resolution-info {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        
+        .check-item {
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #fff;
+            border-left: 4px solid green;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        @media (max-width: 800px) {
+            .resolution-indicator {
+                background-color: green;
+                color: white;
+                padding: 5px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Factory Shoes - Responsive Test</h1>
+        
+        <div class="resolution-info">
+            Current window size: <span id="width"></span> x <span id="height"></span>
+            <div>Target resolution: 800 x 1382 at 44%</div>
+            <div>Mobile view: <span class="resolution-indicator">Active</span> when width is under 800px</div>
+        </div>
+        
+        <h2>Responsive Elements Check:</h2>
+        
+        <div class="check-item">
+            <strong>Hero Section:</strong> Mobile optimization, stacked elements, centered content
+        </div>
+        
+        <div class="check-item">
+            <strong>Scroll Indicator:</strong> Hidden on mobile views
+        </div>
+        
+        <div class="check-item">
+            <strong>About Section:</strong> Updated Bulgarian content, mobile-friendly layout
+        </div>
+        
+        <div class="check-item">
+            <strong>Footer:</strong> Responsive grid, updated Bulgarian text
+        </div>
+        
+        <div class="check-item">
+            <strong>Overall:</strong> Responsive at 800x1382 (44%) resolution
+        </div>
+    </div>
+    
+    <script>
+        // Update window size information
+        function updateSize() {
+            document.getElementById('width').textContent = window.innerWidth;
+            document.getElementById('height').textContent = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', updateSize);
+        updateSize();
+    </script>
+</body>
+</html> 

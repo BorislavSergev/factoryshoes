@@ -1,0 +1,151 @@
+/**
+ * Econt Price Calculator UI Enhancements
+ * Makes the price calculation feature more visually integrated and appealing
+ */
+
+/* Price Calculation Container */
+.econt-calculator-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid rgba(142, 68, 173, 0.1);
+    transition: all 0.3s ease;
+}
+
+.econt-calculator-container:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-color: rgba(142, 68, 173, 0.2);
+}
+
+/* Price Calculation Fields */
+.econt-calculator {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.econt-calculator input,
+.econt-calculator select {
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 80px;
+}
+
+.econt-calculator input:focus,
+.econt-calculator select:focus {
+    border-color: #8e44ad;
+    box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.1);
+    outline: none;
+}
+
+/* Price Calculation Button - transformed into inline action */
+.econt-calculate-btn {
+    background-color: transparent !important;
+    color: #8e44ad !important;
+    border: none !important;
+    padding: 8px 15px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    text-transform: none !important;
+}
+
+.econt-calculate-btn:hover {
+    background-color: rgba(142, 68, 173, 0.1) !important;
+    color: #7d3c98 !important;
+}
+
+.econt-calculate-btn i {
+    margin-right: 8px;
+}
+
+/* Price Results */
+.econt-price-results {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.econt-price-results .price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.econt-price-results .price-row:last-child {
+    border-bottom: none;
+}
+
+.econt-price-results .price-label {
+    font-weight: 500;
+    color: #555;
+}
+
+.econt-price-results .price-value {
+    font-weight: 600;
+    color: #333;
+}
+
+.econt-price-results .total-price {
+    font-weight: 700;
+    color: #8e44ad;
+    font-size: 18px;
+}
+
+/* Loading animation */
+.econt-calculator-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(142, 68, 173, 0.2);
+    border-top: 2px solid #8e44ad;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Automatic price calculation hint */
+.econt-auto-calculate-note {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .econt-calculator {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .econt-calculator input,
+    .econt-calculator select {
+        width: 100%;
+    }
+    
+    .econt-calculate-btn {
+        width: 100%;
+        justify-content: center;
+    }
+} 
