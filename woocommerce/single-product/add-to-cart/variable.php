@@ -2,7 +2,11 @@
 /**
  * Variable product add to cart
  *
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product/add-to-cart/variable.php.
+ *
  * @package Shoes_Store_Theme
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @version 6.1.0
  */
 
 defined('ABSPATH') || exit;
@@ -23,8 +27,13 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
         <p class="stock out-of-stock"><?php echo esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))); ?></p>
     <?php else : ?>
         
-        <!-- Product Variations -->
-        <div class="variations" cellspacing="0">
+        <!--
+        * FIXED: Changed the <div> wrapper to a <table>.
+        * A <tbody> element is only valid inside a <table>.
+        * Browsers like Chrome tolerate this error, but Safari is strict and
+        * this can cause the WooCommerce JavaScript to fail.
+        -->
+        <table class="variations" cellspacing="0">
             <tbody>
                 <?php foreach ($attributes as $attribute_name => $options) : ?>
                     <tr>
@@ -56,7 +65,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
-        </div>
+        </table>
 
         <!-- Single Variation Details -->
         <div class="single_variation_wrap">
@@ -65,9 +74,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
              * Hook: woocommerce_before_single_variation.
              */
             do_action('woocommerce_before_single_variation');
-            ?>
 
-            <?php
             /**
              * Hook: woocommerce_single_variation. Used to output the cart button and placeholder for variation data.
              * @since 2.4.0
@@ -75,9 +82,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
              * @hooked woocommerce_single_variation_add_to_cart_button - 20 Qty selector and cart button
              */
             do_action('woocommerce_single_variation');
-            ?>
 
-            <?php
             /**
              * Hook: woocommerce_after_single_variation.
              */
